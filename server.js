@@ -1,11 +1,16 @@
-const doSomething = () => {
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>resolve("promise returned"),2000);
+let numbers = [1,6,3,9,8,2];
+
+const foodOrder = (type,numbers,callback) => {
+    const even = numbers.map((number) => {
+        if(number % 2 === 1) {
+            return number;
+        }
     })
+    callback(even,type)
 }
 
-const doSomethingElse = async () => {
-    console.log(await doSomething());
-}
+foodOrder(2,numbers,output);
 
-doSomethingElse();
+function output(even,type) {
+    console.log(even,type);
+}
