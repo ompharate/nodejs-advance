@@ -1,11 +1,11 @@
-const path = require("path")
+const doSomething = () => {
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>resolve("promise returned"),2000);
+    })
+}
 
-const fileName = path.basename("./utils/index.js")
-console.log(fileName)
+const doSomethingElse = async () => {
+    console.log(await doSomething());
+}
 
-console.log(path.extname("./utils/index.js"))
-
-const path3 = path.join("abc", "", "", "deatils.txt");
-console.log(path3)
-
-console.log("Current directory:", __dirname);
+doSomethingElse();
